@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type PageType = Readonly<{
   title: string;
@@ -9,11 +9,13 @@ type PageType = Readonly<{
 export const Header = () => {
   const pages: PageType[] = [
     { title: "Profile", path: "/" },
+    { title: "Skill", path: "/skill" },
     { title: "Project", path: "/project" },
-    { title: "Work・Internship", path: "/work" },
+    { title: "Internship", path: "/internship" },
     { title: "Community", path: "/community" },
   ];
 
+  const location = useLocation();
   const navigation = useNavigate();
 
   const handleOnClickButton = (path: string) => {
@@ -24,7 +26,7 @@ export const Header = () => {
     <AppBar
       position="sticky"
       enableColorOnDark
-      sx={{ backgroundColor: "white" }}
+      sx={{ backgroundColor: "white", mb: 3 }}
     >
       <Toolbar
         sx={{
@@ -46,13 +48,22 @@ export const Header = () => {
             display: "flex",
             flexGrow: 1,
             justifyContent: "center",
-            gap: "10px",
+            gap: "50px",
           }}
         >
           {pages.map((page, index) => (
             <Button
               key={index}
-              sx={{ color: "black", fontWeight: "bold", fontSize: "17px" }}
+              sx={{
+                color: "black",
+                fontWeight: "bold",
+                fontSize: "17px",
+                fontFamily: "Roboto",
+                backgroundColor:
+                  location.pathname == page.path
+                    ? "rgb(204,204,204)"
+                    : "inherit",
+              }}
               onClick={() => handleOnClickButton(page.path)}
             >
               {page.title}
