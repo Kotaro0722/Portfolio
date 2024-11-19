@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Footer } from "./page/footer";
 import { Header } from "./page/header";
 import { Profile } from "./page/profile";
+import { Skill } from "./page/skill";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -22,6 +23,7 @@ root.render(
       <Header />
       <Routes>
         <Route path="/" element={<Profile />} />
+        <Route path="/skill" element={<Skill />} />
       </Routes>
       <Footer />
     </BrowserRouter>
