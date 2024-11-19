@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <AppBar
-      position="sticky"
+      position="static"
       enableColorOnDark
       sx={{ backgroundColor: "white", mb: 3 }}
     >
