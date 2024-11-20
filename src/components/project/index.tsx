@@ -1,5 +1,4 @@
-import { createElement, useState, useEffect } from "react";
-import * as MUI from "@mui/material";
+import { useState } from "react";
 import {
   Card,
   CardActions,
@@ -8,9 +7,8 @@ import {
   CardMedia,
   IconButton,
   Typography,
-  Modal,
-  Paper,
   Box,
+  Divider,
 } from "@mui/material";
 import { date2YearMonthString } from "../../utils/dateFormatter";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -22,6 +20,7 @@ export type ProjectPartsType = {
   contentLink: string;
   img: string;
   github?: string;
+  skill: Array<string>;
 };
 
 type ProjectContentModalPRops = {
@@ -36,6 +35,7 @@ export const ProjectParts = ({
   contentLink,
   img,
   github,
+  skill,
 }: ProjectPartsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleOnClickCard = () => {
@@ -53,6 +53,20 @@ export const ProjectParts = ({
           <CardMedia component="img" height="300" image={img} />
           <CardContent>
             <Typography>{abstract}</Typography>
+            <Divider sx={{ my: 3 }} />
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+              <Typography> 使用技術</Typography>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                {skill.map((sk, index) => (
+                  <img
+                    src={"img/" + sk + ".svg"}
+                    alt=""
+                    key={index}
+                    width="40px"
+                  />
+                ))}
+              </Box>
+            </Box>
           </CardContent>
           {github && (
             <CardActions>

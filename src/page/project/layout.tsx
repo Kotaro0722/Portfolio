@@ -10,7 +10,10 @@ export const Layout = ({ projectText }: LayoutProps) => {
     <Container>
       <Grid2 spacing={4} container p={3}>
         {projectText.map(
-          ({ title, date, abstract, contentLink, img, github }, index) => (
+          (
+            { title, date, abstract, contentLink, img, github, skill },
+            index
+          ) => (
             <Grid2 size={6} key={index}>
               <ProjectParts
                 title={title}
@@ -19,6 +22,7 @@ export const Layout = ({ projectText }: LayoutProps) => {
                 contentLink={contentLink}
                 img={img}
                 github={github}
+                skill={skill}
               />
             </Grid2>
           )
