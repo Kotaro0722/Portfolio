@@ -24,10 +24,6 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleOnGitHubClick = () => {
-    window.location.href = "https://github.com/Kotaro0722";
-  };
-
   return (
     <>
       <AppBar
@@ -57,7 +53,7 @@ export const Footer = () => {
             >
               ©2024 Kotaro Tanaka
             </Typography>
-            <Button onClick={handleOnGitHubClick}>
+            <Button href="https://github.com/Kotaro0722">
               <img
                 src="img/github.svg"
                 alt="github"
