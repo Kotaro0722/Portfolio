@@ -1,6 +1,7 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Community } from "./page/community";
 import { Footer } from "./page/footer";
 import { Header } from "./page/header";
 import { Internship } from "./page/internship";
@@ -22,22 +23,29 @@ root.render(
   <ThemeProvider theme={theme}>
     <BrowserRouter>
       <CssBaseline />
-      <Header />
-      <main
+      <div
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          minHeight: "100vh",
         }}
       >
-        <Routes>
-          <Route path="/" element={<Profile />} />
-          <Route path="/skill" element={<Skill />} />
-          <Route path="/project" element={<Project />} />
-          <Route path="/internship" element={<Internship />} />
-        </Routes>
-      </main>
-      <Footer />
+        <Header />
+        <main
+          style={{
+            flex: 1,
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Profile />} />
+            <Route path="/skill" element={<Skill />} />
+            <Route path="/project" element={<Project />} />
+            <Route path="/internship" element={<Internship />} />
+            <Route path="/community" element={<Community />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   </ThemeProvider>
 );
