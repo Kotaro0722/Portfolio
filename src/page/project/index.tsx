@@ -8,7 +8,7 @@ export const Project = () => {
       date: new Date(2023, 9, 1),
       abstract:
         "2年次の授業「地域連携課題演習」で発足したプロジェクトです。現在紙ベースで行われている業務をデジタル化しました。",
-      contentLink: "",
+      contentLink: "https://vita-link.vercel.app/",
       img: "img/VitaLink.svg",
       github: "https://github.com/Kotaro0722/VitaLinkHistory",
       skill: ["next-js", "javascript", "firebase", "vercel", "material-ui"],
