@@ -23,12 +23,20 @@ root.render(
     <BrowserRouter>
       <CssBaseline />
       <Header />
-      <Routes>
-        <Route path="/" element={<Profile />} />
-        <Route path="/skill" element={<Skill />} />
-        <Route path="/project" element={<Project />} />
-        <Route path="/internship" element={<Internship />} />
-      </Routes>
+      <main
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<Profile />} />
+          <Route path="/skill" element={<Skill />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/internship" element={<Internship />} />
+        </Routes>
+      </main>
       <Footer />
     </BrowserRouter>
   </ThemeProvider>
