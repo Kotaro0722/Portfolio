@@ -112,11 +112,6 @@ export const Layout = ({ historyText, timeLineEvent }: LayoutProps) => {
                   px: 2,
                   cursor: timeline.link ? "pointer" : "default",
                   width: "fit-content",
-                  // ":hover": {
-                  //   boxShadow: timeline.link && "grey 10px 10px 10px",
-                  //   border: timeline.link && "solid 1px grey ",
-                  //   borderRadius: timeline.link && "10px",
-                  // },
                 }}
               >
                 <Typography
