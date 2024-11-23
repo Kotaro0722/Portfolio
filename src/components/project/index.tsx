@@ -10,6 +10,7 @@ import {
   Box,
   Divider,
   CardActionArea,
+  Button,
 } from "@mui/material";
 import { date2YearMonthString } from "../../utils/dateFormatter";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -18,8 +19,8 @@ export type ProjectPartsType = {
   title: string;
   date: Date;
   abstract: string;
-  contentLink: string;
-  img: string;
+  contentLink?: string;
+  img?: string;
   github?: string;
   skill: Array<string>;
 };
@@ -37,14 +38,22 @@ export const ProjectParts = ({
     <Card>
       <Box>
         <CardHeader title={title} subheader={date2YearMonthString(date)} />
-        <CardActionArea href={contentLink} disabled={!contentLink}>
-          <CardMedia
-            component="img"
-            height="300"
-            image={img}
-            sx={{ cursor: contentLink && "pointer" }}
+        {img ? (
+          <CardActionArea href={contentLink || ""} disabled={!contentLink}>
+            <CardMedia
+              component="img"
+              height="300"
+              image={img}
+              sx={{ cursor: contentLink && "pointer" }}
+            />
+          </CardActionArea>
+        ) : (
+          <Button
+            sx={{ width: "100%", height: "300px" }}
+            href={contentLink}
+            disabled={!contentLink}
           />
-        </CardActionArea>
+        )}
         <CardContent>
           <Typography>{abstract}</Typography>
           <Divider sx={{ my: 3 }} />
